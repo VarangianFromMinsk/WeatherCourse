@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_nav_action"
+    app:startDestination="@id/welcome_Fragment">
+
+    <fragment
+        android:id="@+id/welcome_Fragment"
+        android:name="com.weathercourse.main.Fragments.Welcome_Fragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcome_Fragment_to_requestsFragment"
+            app:destination="@id/requestsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/welcome_Fragment" />
+        <action
+            android:id="@+id/action_welcome_Fragment_to_main_Fragment"
+            app:destination="@id/main_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestsFragment"
+        android:name="com.weathercourse.main.Fragments.Requests_Fragment"
+        android:label="fragment_requests"
+        tools:layout="@layout/fragment_requests" >
+        <action
+            android:id="@+id/action_requestsFragment_to_geoPosition_Fragment"
+            app:destination="@id/geoPosition_Fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/requestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/geoPosition_Fragment"
+        android:name="com.weathercourse.main.Fragments.GeoPosition_Fragment"
+        android:label="fragment_geo_position"
+        tools:layout="@layout/fragment_geo_position" >
+        <action
+            android:id="@+id/action_geoPosition_Fragment_to_main_Fragment"
+            app:destination="@id/main_Fragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_Fragment"
+        android:name="com.weathercourse.main.Fragments.Main_Fragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_Fragment_to_fragment_UpdateLog"
+            app:destination="@id/fragment_UpdateLog"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_UpdateLog"
+        android:name="com.weathercourse.main.Fragments.Fragment_UpdateLog"
+        android:label="fragment__update_log"
+        tools:layout="@layout/fragment_update_log" >
+        <action
+            android:id="@+id/action_fragment_UpdateLog_to_main_Fragment"
+            app:destination="@id/main_Fragment"
+            app:enterAnim="@anim/enter_from_left"
+            app:exitAnim="@anim/exit_to_right" />
+    </fragment>
+</navigation>

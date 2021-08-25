@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="app_name">WeatherCourse</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="city">City</string>
+    <string name="your_city_in_english">your city in English</string>
+    <string name="save">Save</string>
+    <string name="or_you_can_enter_your_city">Or you can enter your city</string>
+    <string name="weather_state">Weather state</string>
+    <string name="edit_city">Edit city</string>
+    <string name="humidity">Humidity</string>
+    <string name="feels_like">Feels like</string>
+    <string name="country">Country</string>
+    <string name="sunset">Sunset</string>
+    <string name="wind">Wind</string>
+    <string name="wind_gust">Wind Gust</string>
+    <string name="pressure">Pressure</string>
+    <string name="visibility">Visibility</string>
+    <string name="based_on_openweathermap">Based on Openweathermap</string>
+    <string name="check_you_internet_connection">Check you Internet Connection</string>
+    <string name="skip">Skip</string>
+    <string name="permission">Permission</string>
+    <string name="next">Next</string>
+    <string name="welcome">Welcome</string>
+    <string name="update">Update</string>
+    <string name="time">time</string>
+    <string name="hum">Hum</string>
+    <string name="temp">temp</string>
+    <string name="num">Num</string>
+    <string name="reload">Reload</string>
+    <string name="choose_interval">Choose interval</string>
+    <string name="weather">Weather</string>
+    <string name="time_log">Time Log</string>
+
+</resources>

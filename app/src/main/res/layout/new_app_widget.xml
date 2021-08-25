@@ -1,0 +1,150 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="110dp"
+    android:layout_height="220dp"
+    android:background="@color/white"
+    android:theme="@style/ThemeOverlay.WeatherCourse.AppWidgetContainer">
+
+    <ImageView
+        android:id="@+id/widgetBigBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tempWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:maxLength="10"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tempWidgetValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tempWidget"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/tempWidgetValue">
+
+        <TextView
+            android:id="@+id/firstColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/secondColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/firstColon"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/thirdColon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/secondColon"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/firstColonTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/secondColonTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/firstColon"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/thirdColonTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/secondColon"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+        <ImageView
+            android:id="@+id/firstColonIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/secondColonIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/firstColon"
+            android:textSize="16sp"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/thirdColonIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/secondColon"
+            android:textSize="16sp"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/noInternetUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/update" />
+
+
+    <Button
+        android:id="@+id/updateWidgetBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/reload_widget" />
+
+
+</RelativeLayout>
