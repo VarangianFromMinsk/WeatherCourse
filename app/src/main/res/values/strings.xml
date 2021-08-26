@@ -20,7 +20,7 @@
     <string name="pressure">Pressure</string>
     <string name="visibility">Visibility</string>
     <string name="based_on_openweathermap">Based on Openweathermap</string>
-    <string name="check_you_internet_connection">Check you Internet Connection</string>
+    <string name="check_you_internet_connection">Check you Internet Connection/Settings</string>
     <string name="skip">Skip</string>
     <string name="permission">Permission</string>
     <string name="next">Next</string>

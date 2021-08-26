@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import com.weathercourse.main.Database_Room.Log_Model;
 import com.weathercourse.main.Di.Common_AppModule;
 import com.weathercourse.main.Di.DaggerCommon_AppComponent;
 import com.weathercourse.main.Di.ViewModelFactory;
@@ -39,9 +41,13 @@ import com.weathercourse.main.R;
 import com.weathercourse.main.databinding.FragmentGeoPositionBinding;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -144,7 +150,7 @@ public class GeoPosition_Fragment extends Fragment {
             @Override
             public void onLocationChanged(@NonNull Location location) {
                 try {
-                    Geocoder geoCoder = new Geocoder(requireContext(), Locale.ENGLISH);
+                    Geocoder geoCoder = new Geocoder(requireContext(), Locale.getDefault());
                     List<Address> address = geoCoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                     String city = address.get(0).getLocality();
                     Toast.makeText(requireContext(), city, Toast.LENGTH_SHORT).show();
@@ -204,10 +210,10 @@ public class GeoPosition_Fragment extends Fragment {
             }
         });
 
-        locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         try {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mlocListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
         } catch (Exception e) {
             Log.d("gpsError", String.valueOf(e));
         }
@@ -218,17 +224,31 @@ public class GeoPosition_Fragment extends Fragment {
             @Override
             public void onChanged(String city) {
                 binding.yourTownTv.setText(city);
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                Handler handler = new Handler(Looper.getMainLooper());
+
+                executor.execute(new Runnable() {
                     @Override
                     public void run() {
+
                         if(!isGeoPositionFind){
                             sharedPreferences.edit().putString("currentCity", city).apply();
                             locationManager.removeUpdates(mlocListener);
-                            Navigation.findNavController(view).navigate(R.id.action_geoPosition_Fragment_to_main_Fragment);
                         }
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                //UI Thread
+                                if(!isGeoPositionFind){
+                                    Navigation.findNavController(view).navigate(R.id.action_geoPosition_Fragment_to_main_Fragment);
+                                }
+                            }
+                        });
                     }
-                }, 2000);
+                });
+
             }
         });
     }

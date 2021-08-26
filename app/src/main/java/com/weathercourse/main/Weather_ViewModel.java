@@ -140,6 +140,10 @@ public class Weather_ViewModel extends AndroidViewModel {
         return isNetworkErrorExist;
     }
 
+    public void setIsNetworkErrorExist(boolean state){
+        Weather_Repository.instance.setInternet(state);
+    }
+
     //database
     public void loadLogsFromRoom(){
         Weather_Repository.instance.loadLogsFromRoom(getApplication());

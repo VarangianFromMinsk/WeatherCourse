@@ -1,6 +1,7 @@
 package com.weathercourse.main;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -142,7 +143,18 @@ public class Weather_Repository {
 
     //network
     public MutableLiveData<Boolean> getIsNetworkErrorExist() {
+//        ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+//        if(connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected()){
+//            isNetworkErrorExist.setValue(false);
+//        }
+//        else{
+//            isNetworkErrorExist.setValue(true);
+//        }
         return isNetworkErrorExist;
+    }
+
+    public void setInternet(boolean state){
+        isNetworkErrorExist.setValue(state);
     }
 
     //logs

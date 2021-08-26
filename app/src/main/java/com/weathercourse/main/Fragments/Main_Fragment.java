@@ -386,7 +386,7 @@ public class Main_Fragment extends Fragment {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                   // Toast.makeText(requireContext(), "Sorry< something went wrong", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(requireContext(), "internet wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
