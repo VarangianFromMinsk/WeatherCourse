@@ -197,7 +197,7 @@ public class Main_Fragment extends Fragment {
         viewModel.loadCurrentWeather(requireContext());
         viewModel.loadLogsFromRoom();
 
-        viewModel.insertLogInRoom("app open");
+        viewModel.insertLogInRoom("weather state open");
 
         city = sharedPreferences.getString("currentCity", "Grodno");
         isUserSawInstructions = sharedPreferences.getBoolean("checkInstructions", false);
